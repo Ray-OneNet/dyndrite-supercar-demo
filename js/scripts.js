@@ -65,10 +65,10 @@ function startAnimation(){
     video.play();
 }
 function endAnimation(){
-    // if(animation_triggered===false) return
+    if(animation_triggered===false) return
+    animation_triggered = false
     console.log("Animation ends");
     spaceBarTextWrap.setAttribute("is-active", "false");
-    animation_triggered = false
     gsap.timeline().to(spaceBarTextWrap,{
       backgroundColor: "transparent",
       color:"white",
