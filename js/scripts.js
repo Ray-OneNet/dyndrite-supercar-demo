@@ -20,16 +20,20 @@ gsap.defaults({
 
 const video = document.getElementById("video");
 const spaceBarTextWrap = document.getElementById("spacebar");
-let main_tl = gsap.timeline();
+// let main_tl = gsap.timeline();
 let animation_triggered = false
+let animation_playing = false
 
 
 function startAnimation(){
-    if(animation_triggered===true) return
+    if(animation_triggered===true || animation_playing === true) return
     animation_triggered = true
+    animation_playing = true
     console.log("Animation starts");
     spaceBarTextWrap.setAttribute("is-active", "true");
-    gsap.timeline().to(spaceBarTextWrap,{
+    gsap.timeline({
+      onComplete: () =>(animation_playing = false)
+    }).to(spaceBarTextWrap,{
       backgroundColor: "white",
       color: "black",
       scale: 1.08
@@ -43,7 +47,7 @@ function startAnimation(){
         scale:1.3,
         duration: 0.5
     },"<")
-    .to(".running-number-column.col-1",{
+    gsap.timeline().to(".running-number-column.col-1",{
         y: "-182rem",
         duration: 1.75,
         ease: "power2.inOut",
@@ -67,6 +71,7 @@ function startAnimation(){
 function endAnimation(){
     if(animation_triggered===false) return
     animation_triggered = false
+    // animation_playing = true
     console.log("Animation ends");
     spaceBarTextWrap.setAttribute("is-active", "false");
     gsap.timeline().to(spaceBarTextWrap,{
@@ -82,7 +87,7 @@ function endAnimation(){
         opacity: 1,
         scale: 1
     },"<")
-    .to(".running-number-column",{
+    gsap.timeline().to(".running-number-column",{
         y: "0rem",
         duration: 1.2,
         ease: "power2.inOut"
