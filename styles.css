@@ -26,7 +26,7 @@ section {
 }
 .top-layer {
   color: white;
-  z-index: 2;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +35,7 @@ section {
 }
 .overlay-img {
   /* opacity: 0; */
-  z-index: 1;
+  z-index: 5;
   object-fit: cover;
 }
 .speed-counting {

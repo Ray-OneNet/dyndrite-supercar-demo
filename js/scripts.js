@@ -20,12 +20,14 @@ gsap.defaults({
 
 const video = document.getElementById("video");
 const spaceBarTextWrap = document.getElementById("spacebar");
+let main_tl = gsap.timeline();
 let animation_triggered = false
 
 
 function startAnimation(){
     if(animation_triggered===true) return
     animation_triggered = true
+    console.log("Animation starts");
     spaceBarTextWrap.setAttribute("is-active", "true");
     gsap.timeline().to(spaceBarTextWrap,{
       backgroundColor: "white",
@@ -45,7 +47,7 @@ function startAnimation(){
         y: "-182rem",
         duration: 1.75,
         ease: "power2.inOut",
-        delay:0.3
+        // delay:0.3
     })
     .to(".running-number-column.col-2",{
         y: "-168rem",
@@ -63,11 +65,11 @@ function startAnimation(){
     video.play();
 }
 function endAnimation(){
-    if(animation_triggered===false) return
+    // if(animation_triggered===false) return
+    console.log("Animation ends");
     spaceBarTextWrap.setAttribute("is-active", "false");
-    gsap.timeline({
-        onComplete: ()=>(animation_triggered = false)
-    }).to(spaceBarTextWrap,{
+    animation_triggered = false
+    gsap.timeline().to(spaceBarTextWrap,{
       backgroundColor: "transparent",
       color:"white",
       scale: 1
@@ -94,7 +96,6 @@ function endAnimation(){
   function handleKeyDown(event) {
     if (event.keyCode === 32) {
       // Check if the key code is 32, which corresponds to the Spacebar
-      console.log("Spacebar pressed down");
         startAnimation()
       
       // Your code to handle the Spacebar press can go here
@@ -105,7 +106,6 @@ function endAnimation(){
   function handleKeyUp(event) {
     if (event.keyCode === 32) {
       // Check if the key code is 32, which corresponds to the Spacebar
-      console.log("Spacebar released");
         endAnimation()
       // Your code to handle the Spacebar release can go here
     }
