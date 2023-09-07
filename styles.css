@@ -1,0 +1,113 @@
+* {
+  margin: 0px;
+}
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+section {
+  /* background-image: url("mcLaren_engine_animation_v006.png");
+    object-fit: cover; */
+  width: 100%;
+  height: 100vh;
+}
+#canvas,
+.top-layer,
+.overlay-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#canvas,
+.top-layer {
+  z-index: 0;
+}
+.top-layer {
+  color: white;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+}
+.overlay-img {
+  /* opacity: 0; */
+  z-index: 1;
+  object-fit: cover;
+}
+.speed-counting {
+  font-size: 180px;
+  margin: 16px 0px;
+}
+.running-number-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  /* height: 12rem;
+  overflow: hidden;
+  position: relative; */
+}
+.running-number-wrapper > div {
+  position: relative;
+  overflow: hidden;
+}
+.running-number-placeholder {
+  opacity: 0;
+}
+.running-number-column {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.running-number-column .running-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14rem;
+  /* background-color: blue;
+  border-bottom: 1px solid red; */
+}
+
+.space-bar-text-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  padding: 15px 50px;
+  margin-top: 50px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.space-bar-text-wrap [state="2"] {
+  display: none;
+}
+.space-bar-text-wrap[is-active="true"] [state="2"] {
+  display: inline-block;
+}
+.space-bar-text-wrap[is-active="true"] [state="1"] {
+  display: none;
+}
+
+.earpod-icon {
+  margin: 0px 5px;
+}
+
+.turn-on-sound {
+  text-transform: uppercase;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
