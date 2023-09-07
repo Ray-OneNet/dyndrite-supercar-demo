@@ -64,9 +64,10 @@ function startAnimation(){
 }
 function endAnimation(){
     if(animation_triggered===false) return
-    animation_triggered = false
     spaceBarTextWrap.setAttribute("is-active", "false");
-    gsap.timeline().to(spaceBarTextWrap,{
+    gsap.timeline({
+        onComplete: ()=>(animation_triggered = false)
+    }).to(spaceBarTextWrap,{
       backgroundColor: "transparent",
       color:"white",
       scale: 1
