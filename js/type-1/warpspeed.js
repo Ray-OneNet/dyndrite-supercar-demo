@@ -180,6 +180,12 @@ window.requestAnimationFrame = window.requestAnimationFrame || (function (callba
 		WarpSpeed.RUNNING_INSTANCES[this.targetId] = undefined;
 	  }
 	},
+
+	setLineColor: function (color) {
+		// Set the new line color
+		this.STAR_COLOR = color;
+	  },
+
 	pause: function () {
 	  this.PAUSED = true;
 	},
