@@ -36,7 +36,7 @@ function startAnimation(){
         animation_playing = false
         setTimeout(()=>{
             warp.setLineColor("transparent")
-        },4500)
+        },4200)
       }
     }).to(spaceBarTextWrap,{
       backgroundColor: "white",
